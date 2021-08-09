@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectTecni.Views.MainPage">
+
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Entry Grid.Column="0" Grid.Row="0" Text="{Binding Name}" Placeholder="Insert Name"></Entry>
+        <Entry Grid.Column="0" Grid.Row="1" Text="{Binding LastName}" Placeholder="Inser LastName" ></Entry>
+        <Entry Grid.Column="0" Grid.Row="2" Text="{Binding Cedula}" Placeholder="Insert Cedula" ></Entry>
+        <Button Grid.Column="0" Grid.Row="3" Text="Insert" Command="{Binding InsertPerson}"></Button>
+
+        <ListView Grid.Column="0" Grid.Row="4" ItemsSource="{Binding ListPerson}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}"></Label>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding LastName}"></Label>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Cedula}"></Label>
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+
+</ContentPage>
