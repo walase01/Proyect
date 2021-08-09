@@ -9,7 +9,7 @@ namespace ProyectTecni.Services
     public interface IDatabaseService
     {
         Task<List<Person>> GetListPeople();
-        Task<int> InsertAddress(Address address,int id);
+        Task<int> InsertAddress(Address address);
         Task<int> InsertPeople(Person person);
     }
 }

@@ -30,6 +30,7 @@ namespace ProyectTecni
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage,MainViewModel>();
+            containerRegistry.RegisterForNavigation<AddressForPerson , AddressForPersonViewModel>();
         }
     }
 }

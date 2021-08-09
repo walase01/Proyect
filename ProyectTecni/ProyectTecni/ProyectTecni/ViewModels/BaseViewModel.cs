@@ -1,4 +1,5 @@
-﻿using Prism.Services;
+﻿using Prism.Navigation;
+using Prism.Services;
 using ProyectTecni.Models;
 using ProyectTecni.Services;
 using System;
@@ -12,14 +13,16 @@ namespace ProyectTecni.ViewModels
     {
         protected IPageDialogService dialogService;
         protected IDatabaseService databaseService;
+        protected INavigationService navigationService;
 
         protected List<Person> listPerson = new List<Person>();
 
-        public BaseViewModel(IDatabaseService _databaseService, IPageDialogService _dialogService)
+        public BaseViewModel(IDatabaseService _databaseService, IPageDialogService _dialogService, INavigationService _navigationService)
         {
             this.databaseService = _databaseService;
             this.dialogService = _dialogService;
-
+            this.navigationService = _navigationService;
+            GetData();
         }
         public async void GetData()
         {

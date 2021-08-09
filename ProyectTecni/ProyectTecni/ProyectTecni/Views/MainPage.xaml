@@ -19,7 +19,7 @@
 
         <Entry Grid.Column="0" Grid.Row="0" Text="{Binding Name}" Placeholder="Insert Name"></Entry>
         <Entry Grid.Column="0" Grid.Row="1" Text="{Binding LastName}" Placeholder="Inser LastName" ></Entry>
-        <Entry Grid.Column="0" Grid.Row="2" Text="{Binding Cedula}" Placeholder="Insert Cedula" ></Entry>
+        <Entry Grid.Column="0" Grid.Row="2" Text="{Binding Cedula}" Keyboard="Numeric" Placeholder="Insert Cedula" ></Entry>
         <Button Grid.Column="0" Grid.Row="3" Text="Insert" Command="{Binding InsertPerson}"></Button>
 
         <ListView Grid.Column="0" Grid.Row="4" ItemsSource="{Binding ListPerson}">
@@ -41,7 +41,9 @@
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}"></Label>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" ></Label>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding LastName}" ></Label>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Cedula}" ></Label>
                         </Grid>
 
                     </ViewCell>

@@ -36,7 +36,7 @@ namespace ProyectTecni.Services
                         return;
                     }
 
-                    var databaseperson = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "person.db3");
+                    var databaseperson = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "person.db");
                     db = new SQLiteAsyncConnection(databaseperson);
 
                     await db.CreateTableAsync<Address>();
@@ -60,12 +60,12 @@ namespace ProyectTecni.Services
             return await db.Table<Person>().ToListAsync();
         }
 
-        public async Task<int> InsertAddress(Address address,int id)
+        public async Task<int> InsertAddress(Address address)
         {
             try
             {
                 int result = await db.InsertAsync(address);
-                ListAddress = await db.Table<Address>().Where(X => X.IdPerson == id).ToListAsync();
+                ListAddress = await db.Table<Address>().ToListAsync();
                 return result;
 
             }
