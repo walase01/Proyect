@@ -29,7 +29,7 @@ namespace ProyectTecni
             containerRegistry.Register<IDatabaseService,DatabaseService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<MainPage,MainViewModel>();
         }
     }
 }

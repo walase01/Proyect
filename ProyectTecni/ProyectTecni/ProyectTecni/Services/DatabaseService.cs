@@ -3,6 +3,7 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,12 +60,12 @@ namespace ProyectTecni.Services
             return await db.Table<Person>().ToListAsync();
         }
 
-        public async Task<int> InsertAddress(Address address)
+        public async Task<int> InsertAddress(Address address,int id)
         {
             try
             {
                 int result = await db.InsertAsync(address);
-                ListAddress = await db.Table<Address>().ToListAsync();
+                ListAddress = await db.Table<Address>().Where(X => X.IdPerson == id).ToListAsync();
                 return result;
 
             }
