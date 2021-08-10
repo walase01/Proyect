@@ -11,22 +11,19 @@ namespace ProyectTecni.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+
+        //public abstract string Title { get; }
+
         protected IPageDialogService dialogService;
         protected IDatabaseService databaseService;
         protected INavigationService navigationService;
 
-        protected List<Person> listPerson = new List<Person>();
 
         public BaseViewModel(IDatabaseService _databaseService, IPageDialogService _dialogService, INavigationService _navigationService)
         {
             this.databaseService = _databaseService;
             this.dialogService = _dialogService;
             this.navigationService = _navigationService;
-            GetData();
-        }
-        public async void GetData()
-        {
-            listPerson = await databaseService.GetListPeople();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

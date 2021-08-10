@@ -15,44 +15,46 @@ namespace ProyectTecni.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-
+        public  string Title => "OrionTek - People";
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Cedula { get; set; }
         public ICommand InsertPerson { get; set; }
-        public ObservableCollection<Person> ListPerson  ()=> new ObservableCollection<Person>(listPerson);
-
+        public ObservableCollection<Person> ListPerson { get; set; }
         public MainViewModel(IDatabaseService databaseService,IPageDialogService _dialogService,INavigationService navigationService) : base(databaseService,_dialogService,navigationService)
         {
-            InsertPerson = new Command(SaveAddress);
+            InsertPerson = new Command(SavePerson);
+            GetData();
         }
 
-
-        //public void getData()
-        //{
-        //    var datos =  listPerson;
-        //    foreach (var data in datos)
-        //    {
-        //        ListPerson.Add(data);
-        //    }
-        //}
-
-        private async void SaveAddress()
+        private async void GetData()
+        {
+            try
+            {
+                ListPerson = new ObservableCollection<Person>(await databaseService.GetListPeople());
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+        }
+        private async void SavePerson()
         {
             var parameter = new NavigationParameters();
-            
 
-            if (Empty(Name,LastName,Cedula))
+
+            if (Empty(Name, LastName, Cedula))
             {
-                Person person = new Person();             
+                Person person = new Person();
                 person.Name = Name;
                 person.LastName = LastName;
-                person.Cedula = Cedula;              
+                person.Cedula = Cedula;
                 await databaseService.InsertPeople(person);
+                GetData();
                 parameter.Add("idPerson", person.IdPerson);
-                await navigationService.NavigateAsync("AddressForPerson",parameter);
+                await navigationService.NavigateAsync($"{NvigatonConst.Address}", parameter);
                 await dialogService.DisplayAlertAsync("Confirm", "Correctly", "OK");
-                
+
             }
             else
             {
@@ -61,9 +63,9 @@ namespace ProyectTecni.ViewModels
 
         }
 
-        public bool Empty(string city, string country,string cedula)
+        public bool Empty(string name, string lastname,string cedula)
         {
-            if (!String.IsNullOrEmpty(city) && !String.IsNullOrEmpty(country) && !String.IsNullOrEmpty(cedula))
+            if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(lastname) && !String.IsNullOrEmpty(cedula))
             {
                 return true;
             }

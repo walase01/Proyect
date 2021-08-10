@@ -10,6 +10,9 @@ namespace ProyectTecni.Services
     {
         Task<List<Person>> GetListPeople();
         Task<int> InsertAddress(Address address);
+
+        Task<List<Address>> GetAddresses();
+
         Task<int> InsertPeople(Person person);
     }
 }

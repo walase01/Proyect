@@ -19,18 +19,18 @@ namespace ProyectTecni
         protected async override void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync($"{NvigatonConst.navigation}/{NvigatonConst.Person}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             //containerRegistry.Register<IDatabaseService, DabaseService>();
 
-            containerRegistry.Register<IDatabaseService,DatabaseService>();
+            containerRegistry.RegisterInstance<IDatabaseService>(new DatabaseService());
 
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage,MainViewModel>();
-            containerRegistry.RegisterForNavigation<AddressForPerson , AddressForPersonViewModel>();
+            containerRegistry.RegisterForNavigation<NavigationPage>(NvigatonConst.navigation);
+            containerRegistry.RegisterForNavigation<MainPage,MainViewModel>(NvigatonConst.Person);
+            containerRegistry.RegisterForNavigation<AddressForPerson , AddressForPersonViewModel>(NvigatonConst.Address);
         }
     }
 }

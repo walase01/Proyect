@@ -3,5 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
              x:Class="ProyectTecni.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="OpenSans"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
 
+            <Style x:Key="ButtonStyleOut" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="FontFamily" Value="opensans"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="BackgroundColor" Value="DarkRed"/>
+            </Style>
+
+            <Style x:Key="LabelStyleList" TargetType="Label" >
+
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontFamily" Value="opensans"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+    
 </prism:PrismApplication>

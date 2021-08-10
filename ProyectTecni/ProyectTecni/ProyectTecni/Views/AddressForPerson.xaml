@@ -2,11 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectTecni.Views.AddressForPerson">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding idPersona}" FontSize="Body"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <Grid Padding="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Entry Grid.Column="0" Grid.Row="0" Text="{Binding City}" Placeholder="Insert Name"></Entry>
+        <Entry Grid.Column="0" Grid.Row="1" Text="{Binding Country}" Placeholder="Inser LastName" ></Entry>
+        <Button Grid.Column="0" Grid.Row="3" Text="Insert" Command="{Binding InsertAddress}" Style="{StaticResource Key=ButtonStyleOut}"></Button>
+        <Label Grid.Column="0" Grid.Row="4" Text="Lista de direcciones" Style="{StaticResource Key=LabelStyle}"></Label>
+        <ListView Grid.Column="0" Grid.Row="5" ItemsSource="{Binding ListAddress}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Country}" Style="{StaticResource Key=LabelStyleList}"></Label>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding City}" ></Label>
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
 </ContentPage>

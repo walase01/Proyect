@@ -89,5 +89,10 @@ namespace ProyectTecni.Services
                 throw;
             }
         }
+
+        public async Task<List<Address>> GetAddresses()
+        {
+            return await db.Table<Address>().ToListAsync();
+        }
     }
 }

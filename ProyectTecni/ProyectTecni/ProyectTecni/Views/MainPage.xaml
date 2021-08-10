@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectTecni.Views.MainPage">
+             x:Class="ProyectTecni.Views.MainPage"
+             x:Name="{Binding Title}">
 
     <Grid Padding="5">
         
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -20,9 +22,9 @@
         <Entry Grid.Column="0" Grid.Row="0" Text="{Binding Name}" Placeholder="Insert Name"></Entry>
         <Entry Grid.Column="0" Grid.Row="1" Text="{Binding LastName}" Placeholder="Inser LastName" ></Entry>
         <Entry Grid.Column="0" Grid.Row="2" Text="{Binding Cedula}" Keyboard="Numeric" Placeholder="Insert Cedula" ></Entry>
-        <Button Grid.Column="0" Grid.Row="3" Text="Insert" Command="{Binding InsertPerson}"></Button>
-
-        <ListView Grid.Column="0" Grid.Row="4" ItemsSource="{Binding ListPerson}">
+        <Button Grid.Column="0" Grid.Row="3" Text="Insert" Style="{StaticResource Key=ButtonStyleOut}" Command="{Binding InsertPerson}"></Button>
+        <Label Grid.Column="0" Grid.Row="4" Text="Lista de Personas" Style="{StaticResource Key=LabelStyle}"></Label>
+        <ListView Grid.Column="0" Grid.Row="5" ItemsSource="{Binding ListPerson}" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -32,18 +34,16 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" ></Label>
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding LastName}" ></Label>
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Cedula}" ></Label>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" Style="{StaticResource Key=LabelStyleList}" ></Label>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding LastName}" Style="{StaticResource Key=LabelStyleList}" ></Label>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Cedula}" Style="{StaticResource Key=LabelStyleList}" ></Label>
                         </Grid>
 
                     </ViewCell>
