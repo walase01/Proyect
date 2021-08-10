@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:AddressControl="clr-namespace:ProyectTecni.Controls"
              x:Class="ProyectTecni.Views.AddressForPerson">
 
     <Grid Padding="5">
@@ -26,22 +27,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-
-                        <Grid>
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Country}" Style="{StaticResource Key=LabelStyleList}"></Label>
-                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding City}" ></Label>
-                        </Grid>
-
+                        <AddressControl:ItemView/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

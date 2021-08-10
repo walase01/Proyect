@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectTecni.Views.MainPage"
+             xmlns:ControlsPerson="clr-namespace:ProyectTecni.Controls"
              x:Name="{Binding Title}">
 
     <Grid Padding="5">
@@ -28,24 +29,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-
-                        <Grid>
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" Style="{StaticResource Key=LabelStyleList}" ></Label>
-                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding LastName}" Style="{StaticResource Key=LabelStyleList}" ></Label>
-                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Cedula}" Style="{StaticResource Key=LabelStyleList}" ></Label>
-                        </Grid>
-
+                        <ControlsPerson:ItemViewPerson/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

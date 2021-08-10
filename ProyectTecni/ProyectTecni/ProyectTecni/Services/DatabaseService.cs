@@ -60,6 +60,12 @@ namespace ProyectTecni.Services
             return await db.Table<Person>().ToListAsync();
         }
 
+        //public async Task<List<T>> GetListPersonAndAddress()
+        //{
+        //    return await db.QueryAsync<T>
+        //}
+        
+
         public async Task<int> InsertAddress(Address address)
         {
             try
